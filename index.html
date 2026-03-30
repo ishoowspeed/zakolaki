@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>ZAKOLAKI - Klub Brawl Stars</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-logo">
+    <img src="logobs.png" width="52" height="52" alt="Logo" class="logo-img">
+  </div>
+  <div class="header-title">ZAKOLAKI</div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="header-nav" id="headerNav">
+    <a class="nav-btn" href="#" onclick="showPage('home');closeMobileMenu();return false;">INFORMACJE</a>
+    <a class="nav-btn" href="#" onclick="showPage('announcements');closeMobileMenu();return false;">OGLOSZENIA</a>
+    <a class="nav-btn gold" href="#" onclick="showPage('tournament');closeMobileMenu();return false;">TURNIEJE</a>
+  </nav>
+</header>
+
+<div id="page-home" class="page active">
+  <main class="main-bg">
+    <div class="club-card">
+      <div class="club-badge-wrap">
+        <img src="logobs.png" width="100" height="100" alt="Logo klubu" class="badge-img">
+      </div>
+      <div class="club-name">ZAKOLAKI</div>
+      <div class="trophies">
+        <img src="pucharek.png" class="trophy-icon" alt="puchar">
+        <span class="trophy-count">109446</span>
+      </div>
+      <p class="club-desc">jak tu jeszcze jestes masz duze zakola</p>
+      <div class="info-grid">
+        <div class="info-btn">
+          <span class="btn-label">Znacznik klubu</span>
+          <div class="btn-value">#2U220YRG0</div>
+        </div>
+        <div class="info-btn">
+          <span class="btn-label">TYP</span>
+          <div class="btn-value">Otwarty</div>
+        </div>
+        <div class="info-btn">
+          <span class="btn-label">Wymagane puchary</span>
+          <div class="btn-value">
+            <img src="pucharek.png" class="mini-trophy" alt="puchar">5500
+          </div>
+        </div>
+        <div class="info-btn">
+          <span class="btn-label">Typ klubu</span>
+          <div class="btn-value">PRORODZINNY</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="page-announcements" class="page">
+  <div class="announcements-page">
+    <div class="tournament-title">OGLOSZENIA</div>
+    <div class="tournament-subtitle">AKTUALNOSCI KLUBU ZAKOLAKI</div>
+    <div class="announcements-list" id="announcementsList"></div>
+  </div>
+</div>
+
+<div id="page-tournament" class="page">
+  <div class="tournament-page">
+    <div class="bracket-wrapper">
+      <div class="no-tournament-overlay">
+        <div class="no-t-icon">🔒</div>
+        <div class="no-t-title">AKTUALNIE NIE MA<br>ZADNEGO TURNIEJU</div>
+        <div class="no-t-sub"></div>
+      </div>
+      <div class="bracket-container">
+        <div class="bracket-round">
+          <div class="round-label">1/8 Finalu</div>
+          <div class="bracket-matches">
+            <div class="match"><div class="match-slot">GRACZ 1</div><div class="match-divider"></div><div class="match-slot">GRACZ 2</div></div>
+            <div class="match"><div class="match-slot">GRACZ 3</div><div class="match-divider"></div><div class="match-slot">GRACZ 4</div></div>
+            <div class="match"><div class="match-slot">GRACZ 5</div><div class="match-divider"></div><div class="match-slot">GRACZ 6</div></div>
+            <div class="match"><div class="match-slot">GRACZ 7</div><div class="match-divider"></div><div class="match-slot">GRACZ 8</div></div>
+          </div>
+        </div>
+        <div class="connector-col"><div class="conn-line"></div></div>
+        <div class="bracket-round">
+          <div class="round-label">Cwiercfinal</div>
+          <div class="bracket-matches">
+            <div class="match"><div class="match-slot tbd">???</div><div class="match-divider"></div><div class="match-slot tbd">???</div></div>
+            <div class="match"><div class="match-slot tbd">???</div><div class="match-divider"></div><div class="match-slot tbd">???</div></div>
+          </div>
+        </div>
+        <div class="connector-col"><div class="conn-line"></div></div>
+        <div class="bracket-round">
+          <div class="round-label">Polfinal</div>
+          <div class="bracket-matches">
+            <div class="match"><div class="match-slot tbd">???</div><div class="match-divider"></div><div class="match-slot tbd">???</div></div>
+          </div>
+        </div>
+        <div class="connector-col"><div class="conn-line"></div></div>
+        <div class="bracket-round">
+          <div class="round-label">Final</div>
+          <div class="bracket-matches">
+            <div class="match"><div class="match-slot tbd">???</div><div class="match-divider"></div><div class="match-slot tbd">???</div></div>
+          </div>
+        </div>
+        <div class="winner-col">
+          <div class="winner-trophy">🏆</div>
+          <div class="winner-label">Mistrz</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
