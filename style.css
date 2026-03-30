@@ -1,0 +1,437 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bs-blue:          #1a6fb5;
+  --bs-button-border: #5bc0f5;
+  --bs-gold:          #f5c518;
+  --bs-dark:          #0d3d6e;
+  --bs-darker:        #081830;
+  --header-h:         72px;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bs-blue);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.header {
+  background: linear-gradient(180deg, #0d3d6e 0%, #0f4d8a 100%);
+  border-bottom: 3px solid #0a2d55;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+}
+
+.header-logo { flex-shrink: 0; }
+.logo-img { object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); display: block; }
+
+.header-title {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  flex-shrink: 0;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(180deg, #1e7ad4 0%, #0f4d8a 100%);
+  border: 2px solid var(--bs-button-border);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: auto;
+  box-shadow: 0 3px 0 #072d55;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.nav-btn {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  letter-spacing: 1.5px;
+  color: #fff;
+  background: linear-gradient(180deg, #1e7ad4 0%, #0f4d8a 100%);
+  border: 2px solid var(--bs-button-border);
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 0 #072d55, 0 4px 12px rgba(0,0,0,0.35);
+  text-shadow: 1px 2px 0 #000;
+
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 100%);
+  border-radius: 8px 8px 0 0;
+  pointer-events: none;
+}
+
+.nav-btn:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 #072d55, 0 8px 18px rgba(0,0,0,0.4); }
+.nav-btn:active { transform: translateY(3px);  box-shadow: 0 1px 0 #072d55; }
+
+.nav-btn.gold {
+  background: linear-gradient(180deg, #f5c518 0%, #c8860a 100%);
+  border-color: #ffe066;
+  box-shadow: 0 4px 0 #7a4e00, 0 4px 12px rgba(0,0,0,0.35);
+  color: #1a1a00;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+}
+.nav-btn.gold:hover { box-shadow: 0 6px 0 #7a4e00, 0 8px 18px rgba(0,0,0,0.4); }
+
+.page { display: none; }
+.page.active { display: block; }
+
+.main-bg {
+  background: url('tlo.png') center center / cover no-repeat;
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 60px;
+}
+
+.club-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+  width: 100%;
+}
+
+.club-badge-wrap { margin-bottom: 8px; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5)); }
+.badge-img { object-fit: contain; }
+
+.club-name {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: #fff;
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.trophies { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+.trophy-icon { width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+.trophy-count {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.club-desc {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  color: #cce8ff;
+  text-align: center;
+  margin-bottom: 36px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.info-btn {
+  background: linear-gradient(180deg, #1e6bbf 0%, #155494 100%);
+  border: 2.5px solid var(--bs-button-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: center;
+  box-shadow: 0 4px 0 #0a3060, 0 6px 16px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 100%);
+  border-radius: 10px 10px 0 0;
+  pointer-events: none;
+}
+
+.btn-label { font-size: 0.72rem; font-weight: 900; color: #a8d8ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; display: block; }
+.btn-value  { font-family: 'Lilita One', cursive; font-size: clamp(1rem, 3.5vw, 1.35rem); color: #fff; letter-spacing: 1px; text-shadow: 1px 2px 0 #000; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.mini-trophy { width: 20px; height: 20px; object-fit: contain; }
+
+.tournament-page,
+.announcements-page {
+  background: url('tlo.png') center center / cover no-repeat;
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 16px 60px;
+  overflow-x: hidden;
+}
+
+.tournament-title {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  color: var(--bs-gold);
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 2px 2px 0 #000, 0 4px 12px rgba(0,0,0,0.5);
+  margin-bottom: 4px;
+}
+
+.tournament-subtitle {
+  font-size: 0.78rem;
+  color: #a8d8ff;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.announcements-list {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.no-ann {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #0c3660 0%, #09274a 100%);
+  border: 2px solid rgba(91,192,245,0.2);
+  border-radius: 18px;
+}
+
+.no-ann-icon { font-size: 3rem; }
+.no-ann-title {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  color: #fff;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 0 #000;
+}
+.no-ann-sub { font-size: 0.8rem; color: #a8d8ff; font-weight: 800; letter-spacing: 0.5px; }
+
+.ann-card {
+  background: linear-gradient(180deg, #0e3f72 0%, #0a2d52 100%);
+  border: 2px solid rgba(91,192,245,0.3);
+  border-radius: 14px;
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.ann-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, transparent 100%);
+  border-radius: 12px 12px 0 0;
+  pointer-events: none;
+}
+
+.ann-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ann-type-badge { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+
+.ann-title {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.5);
+  flex: 1;
+}
+
+.ann-body {
+  font-size: clamp(0.82rem, 2.5vw, 0.92rem);
+  color: #c8e4ff;
+  font-weight: 700;
+  line-height: 1.55;
+  padding-left: 34px;
+}
+
+.ann-date {
+  font-size: 0.7rem;
+  color: rgba(168,216,255,0.5);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+  padding-left: 34px;
+}
+
+.ann-card[data-type="event"]   { border-color: rgba(245,197,24,0.4); }
+.ann-card[data-type="warning"] { border-color: rgba(255,120,30,0.45); }
+.ann-card[data-type="trophy"]  { border-color: rgba(100,220,120,0.4); }
+
+.bracket-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+}
+
+.no-tournament-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8,24,50,0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 18px;
+  border: 2px solid rgba(91,192,245,0.2);
+  gap: 6px;
+}
+
+.no-t-icon { font-size: 3.2rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); }
+.no-t-title {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(1.1rem, 4vw, 1.55rem);
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000;
+  line-height: 1.35;
+  padding: 0 18px;
+}
+.no-t-sub { font-size: 0.85rem; color: #a8d8ff; font-weight: 800; letter-spacing: 0.5px; text-align: center; }
+
+.bracket-container {
+  display: flex;
+  align-items: stretch;
+  padding: 20px 12px;
+  background: linear-gradient(180deg, #0c3660 0%, #09274a 100%);
+  border-radius: 18px;
+  border: 2.5px solid rgba(91,192,245,0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+  overflow-x: auto;
+  opacity: 0.35;
+  filter: grayscale(25%);
+  min-height: 380px;
+  gap: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bracket-round { display: flex; flex-direction: column; min-width: 110px; flex: 1; }
+.round-label { font-family: 'Lilita One', cursive; font-size: 0.65rem; color: var(--bs-gold); letter-spacing: 1.5px; text-transform: uppercase; text-align: center; margin-bottom: 12px; text-shadow: 1px 1px 0 #000; white-space: nowrap; padding: 0 4px; }
+.bracket-matches { display: flex; flex-direction: column; flex: 1; justify-content: space-around; gap: 10px; padding: 0 6px; }
+
+.match { display: flex; flex-direction: column; border: 1.5px solid rgba(91,192,245,0.3); border-radius: 8px; overflow: hidden; }
+.match-slot { background: linear-gradient(180deg, #16508e 0%, #0f3d6e 100%); padding: 7px 10px; font-family: 'Lilita One', cursive; font-size: 0.72rem; color: rgba(200,230,255,0.5); letter-spacing: 0.8px; text-align: center; white-space: nowrap; }
+.match-slot.tbd { background: linear-gradient(180deg, #0f3d6e 0%, #0a2d52 100%); color: rgba(140,190,230,0.35); }
+.match-divider { height: 1px; background: rgba(91,192,245,0.2); }
+
+.connector-col { display: flex; flex-direction: column; justify-content: space-around; align-items: center; width: 18px; padding-top: 32px; flex-shrink: 0; }
+.conn-line { width: 2px; flex: 1; background: linear-gradient(180deg, rgba(91,192,245,0) 0%, rgba(91,192,245,0.25) 50%, rgba(91,192,245,0) 100%); }
+
+.winner-col { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 70px; padding-top: 32px; gap: 6px; }
+.winner-trophy { font-size: 2.2rem; opacity: 0.35; }
+.winner-label { font-family: 'Lilita One', cursive; font-size: 0.65rem; color: rgba(245,197,24,0.4); letter-spacing: 1.5px; text-transform: uppercase; }
+
+@media (max-width: 600px) {
+  :root { --header-h: 64px; }
+
+  .header { padding: 8px 14px; gap: 10px; }
+  .logo-img { width: 42px; height: 42px; }
+
+  .hamburger { display: flex; }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 8px;
+    background: linear-gradient(180deg, #0d3d6e 0%, #092e57 100%);
+    border-bottom: 3px solid #0a2d55;
+    padding: 12px 16px 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    z-index: 99;
+  }
+
+  .header-nav.open { display: flex; }
+
+  .nav-btn { justify-content: center; font-size: 1rem; padding: 12px; }
+
+  .info-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .info-btn  { padding: 12px 10px; }
+
+  .main-bg { padding: 28px 12px 50px; }
+
+  .club-badge-wrap img { width: 80px; height: 80px; }
+
+  .bracket-container { min-height: 280px; padding: 16px 8px; }
+  .bracket-round { min-width: 88px; }
+  .match-slot { font-size: 0.62rem; padding: 6px 6px; }
+}
+
+@media (max-width: 380px) {
+  .header-title { font-size: 1.35rem; }
+  .info-grid { grid-template-columns: 1fr; }
+}
